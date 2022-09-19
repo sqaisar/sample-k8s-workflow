@@ -10,7 +10,7 @@ pipelines:
     materials:
       
       upstream:
-        pipeline:   
+        pipeline: nbb_test_application_pipeline
         stage: nbb_test_application_stage
         name: upstream
       
