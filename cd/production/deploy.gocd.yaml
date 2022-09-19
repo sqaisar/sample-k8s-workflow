@@ -2,7 +2,7 @@ format_version: 10
 
 pipelines:
 
-  nbb_qa_deployment_pipeline:
+  nbb_production_deployment_pipeline:
 
     group: NodeBulletinBoardApplication
     lock_behavior: unlockWhenFinished
@@ -22,7 +22,7 @@ pipelines:
         encrypted_password: AES:tCJvJQsZXrptroUqwLabKg==:favHDMsURUh6yt+20fX2WuMJU5wctHiOd81uM5caDQuh0VTz5d1cB3dad4UzdjM1
     
     stages:
-      - nbb_qa_deployment_stage:
+      - nbb_production_deployment_stage:
 
           fetch_materials: true
           keep_artifacts: false
