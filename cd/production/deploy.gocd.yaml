@@ -11,8 +11,8 @@ pipelines:
     materials:
       
       upstream:
-        pipeline: nbb_claybox_deployment_pipeline
-        stage: nbb_claybox_deployment_stage
+        pipeline: nbb_qa_deployment_pipeline
+        stage: nbb_qa_deployment_stage
         name: upstream_pipeline
       
       gitRepository:
@@ -43,7 +43,7 @@ pipelines:
               - fetch:
 
                   artifact_id: bulletin-board
-                  pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline/nbb_claybox_deployment_pipeline
+                  pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline/nbb_claybox_deployment_pipeline/nbb_qa_deployment_pipeline
                   stage: nbb_build_publish_stage
                   job: build_image
                   artifact_origin: external
