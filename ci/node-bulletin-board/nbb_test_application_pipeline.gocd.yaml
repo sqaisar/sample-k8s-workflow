@@ -1,7 +1,7 @@
 format_version: 10
 pipelines:
    nbb_test_application_pipeline:
-    group: sample
+    group: Tests
     label_template: ${COUNT}
     lock_behavior: unlockWhenFinished
     display_order: 2
