@@ -45,6 +45,11 @@ pipelines:
 
               tasks:
 
+              - exec:
+                arguments:
+                command: ls -a
+                run_if: passed
+                
               - fetch:
 
                   artifact_id: bulletin-board
@@ -57,7 +62,7 @@ pipelines:
                   options:
                     EnvironmentVariablePrefix: ''
                     SkipImagePulling: 'true'
-
+                    
               - script: |
                   echo "Generating manifests! Although they are already generated :)"
                   pwd

@@ -1,28 +1,39 @@
 format_version: 10
+
 pipelines:
+
    nbb_test_application_pipeline:
     group: NodeBulletinBoardApplication
     label_template: ${COUNT}
     lock_behavior: unlockWhenFinished
     display_order: 2
     environment_variables:
+
     materials:
       upstream:
         pipeline: nbb_build_publish_pipeline
         stage: nbb_build_publish_stage
         name: upstream
+
     stages:
+
     - nbb_test_application_stage:
+
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
         approval:
           type: success
+
         jobs:
+
           test_app_image:
+
             timeout: 0
             elastic_profile_id: demo-app
+            
             tasks:
+
             - fetch:
                 artifact_id: bulletin-board
                 pipeline: nbb_build_publish_pipeline
@@ -30,6 +41,7 @@ pipelines:
                 job: build_image
                 artifact_origin: external
                 run_if: passed
+                
             - exec:
                 arguments:
                 - -c
