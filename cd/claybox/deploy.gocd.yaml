@@ -3,13 +3,13 @@ format_version: 10
 environments:
   claybox:
     pipelines:
-      - nbb_claybox_deployment_pipeline
+      - deployment
   qa:
     pipelines:
-      - nbb_qa_deployment_pipeline
+      - deployment
   production:
     pipelines:
-      - nbb_production_deployment_pipeline
+      - deployment
 
 pipelines:
 
