@@ -10,7 +10,7 @@ pipelines:
     materials:
       
       upstream:
-        pipeline: nbb_test_application_pipeline
+        pipeline:   
         stage: nbb_test_application_stage
         name: upstream
       
@@ -42,7 +42,7 @@ pipelines:
               - fetch:
 
                   artifact_id: bulletin-board
-                  pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline
+                  pipeline: nbb_test_application_pipeline
                   stage: nbb_test_application_stage
                   job: test_app_image
                   artifact_origin: external
