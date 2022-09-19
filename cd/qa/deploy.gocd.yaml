@@ -45,11 +45,6 @@ pipelines:
 
               tasks:
 
-              - exec:
-                  arguments:
-                  command: ls -a
-                  run_if: passed
-
               - fetch:
 
                   artifact_id: bulletin-board

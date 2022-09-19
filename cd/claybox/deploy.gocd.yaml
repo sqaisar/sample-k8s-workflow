@@ -44,11 +44,6 @@ pipelines:
               elastic_profile_id: agent-profile
 
               tasks:
-
-              - exec:
-                  arguments:
-                  command: ls -a
-                  run_if: passed
                 
               - fetch:
 
