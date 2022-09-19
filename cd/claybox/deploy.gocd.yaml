@@ -46,9 +46,9 @@ pipelines:
               tasks:
 
               - exec:
-                arguments:
-                command: ls -a
-                run_if: passed
+                  arguments:
+                  command: ls -a
+                  run_if: passed
                 
               - fetch:
 
