@@ -6,6 +6,7 @@ pipelines:
     lock_behavior: none
     display_order: 3
     environment_variables:
+      KUBECONFIG: '{{SECRET:[minikube-kubeconfig]}}'
     materials:
       upstream:
         pipeline: test_application
@@ -41,5 +42,5 @@ pipelines:
                 run_if: passed
             - exec:
                 arguments:
-                command: ./app-deployment.sh
+                command: ./app-testing.sh
                 run_if: passed
