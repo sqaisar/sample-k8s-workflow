@@ -4,8 +4,9 @@ pipelines:
 
   nbb_claybox_deployment_pipeline:
 
-    group: Claybox
+    group: NodeBulletinBoard
     lock_behavior: unlockWhenFinished
+    display_order: 3
     
     materials:
       
