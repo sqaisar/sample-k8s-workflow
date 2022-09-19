@@ -1,6 +1,6 @@
 format_version: 3
 pipelines:
-  test_application:
+   nbb_test_application_pipeline:
     group: sample
     label_template: ${COUNT}
     lock_behavior: unlockWhenFinished
@@ -8,11 +8,11 @@ pipelines:
     environment_variables:
     materials:
       upstream:
-        pipeline: build_and_publish_image
-        stage: build_and_publish_image
+        pipeline: nbb_build_publish_pipeline
+        stage: nbb_build_publish_stage
         name: upstream
     stages:
-    - test_app_image:
+    - nbb_test_application_stage:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
@@ -25,8 +25,8 @@ pipelines:
             tasks:
             - fetch:
                 artifact_id: bulletin-board
-                pipeline: build_and_publish_image
-                stage: build_and_publish_image
+                pipeline: nbb_build_publish_pipeline
+                stage: nbb_build_publish_stage
                 job: build_image
                 artifact_origin: external
                 run_if: passed

@@ -1,0 +1,53 @@
+format_version: 10
+
+pipelines:
+
+  nbb_qa_deployment_pipeline:
+
+    group: QA
+    lock_behavior: unlockWhenFinished
+    
+    materials:
+      gitRepository:
+        git: "https://github.com/sqaisar/k8-deployment-manifests.git"
+        branch: master
+        username: sqaisar
+        encrypted_password: AES:tCJvJQsZXrptroUqwLabKg==:favHDMsURUh6yt+20fX2WuMJU5wctHiOd81uM5caDQuh0VTz5d1cB3dad4UzdjM1
+    
+    stages:
+      - nbb_qa_deployment_stage:
+
+          fetch_materials: true
+          keep_artifacts: false
+          clean_workspace: false
+
+          approval:
+            type: success
+
+          jobs:
+
+            deployment:
+
+              timeout: 0
+              elastic_profile_id: agent-profile
+
+              tasks:
+
+              - fetch:
+
+                  artifact_id: bulletin-board
+                  pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline/nbb_claybox_deployment_pipeline
+                  stage: nbb_claybox_deployment_stage
+                  job: deployment
+                  artifact_origin: external
+                  run_if: passed
+
+                  options:
+                    EnvironmentVariablePrefix: ''
+                    SkipImagePulling: 'true'
+
+              - script: |
+                  echo "Generating manifests! Although they are already generated :)"
+                  pwd
+                  ls -a ./
+
