@@ -1,4 +1,4 @@
-format_version: 3
+format_version: 10
 pipelines:
    nbb_test_application_pipeline:
     group: sample
