@@ -43,7 +43,7 @@ pipelines:
 
                   artifact_id: bulletin-board
                   pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline
-                  stage: nbb_build_publish_pipeline
+                  stage: nbb_build_publish_stage
                   job: build_image
                   artifact_origin: external
                   run_if: passed
