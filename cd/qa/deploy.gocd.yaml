@@ -1,8 +1,13 @@
 format_version: 10
 
+environments:
+  qa:
+    pipelines:
+      - nbb_qa_deployment_pipeline
+
 pipelines:
 
-  nbb_production_deployment_pipeline:
+  nbb_qa_deployment_pipeline:
 
     group: NodeBulletinBoardApplication
     lock_behavior: unlockWhenFinished
@@ -11,8 +16,8 @@ pipelines:
     materials:
       
       upstream:
-        pipeline: nbb_qa_deployment_pipeline
-        stage: nbb_qa_deployment_stage
+        pipeline: nbb_claybox_deployment_pipeline
+        stage: nbb_claybox_deployment_stage
         name: upstream_pipeline
       
       gitRepository:
@@ -22,7 +27,7 @@ pipelines:
         encrypted_password: AES:tCJvJQsZXrptroUqwLabKg==:favHDMsURUh6yt+20fX2WuMJU5wctHiOd81uM5caDQuh0VTz5d1cB3dad4UzdjM1
     
     stages:
-      - nbb_production_deployment_stage:
+      - nbb_qa_deployment_stage:
 
           fetch_materials: true
           keep_artifacts: false
@@ -43,7 +48,7 @@ pipelines:
               - fetch:
 
                   artifact_id: bulletin-board
-                  pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline/nbb_claybox_deployment_pipeline/nbb_qa_deployment_pipeline
+                  pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline/nbb_claybox_deployment_pipeline
                   stage: nbb_build_publish_stage
                   job: build_image
                   artifact_origin: external
