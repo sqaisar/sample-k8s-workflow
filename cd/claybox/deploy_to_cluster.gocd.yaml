@@ -42,9 +42,9 @@ pipelines:
               - fetch:
 
                   artifact_id: bulletin-board
-                  pipeline: nbb_test_application_pipeline
-                  stage: nbb_test_application_stage
-                  job: test_app_image
+                  pipeline: nbb_build_publish_pipeline/nbb_test_application_pipeline
+                  stage: nbb_build_publish_pipeline
+                  job: build_image
                   artifact_origin: external
                   run_if: passed
 
