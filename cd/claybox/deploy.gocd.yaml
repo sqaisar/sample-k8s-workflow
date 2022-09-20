@@ -3,7 +3,7 @@ format_version: 10
 environments:
   claybox:
     environment_variables:
-      KUBECONFIG: "{{SECRET:[secret-for-dokerhub-credentials][KUBECONFIG]}}"
+      KUBECONFIG: "{{SECRET:[secret-for-dockerhub-credentials][KUBECONFIG]}}"
     pipelines:
       - nbb_claybox_deployment_pipeline
 
