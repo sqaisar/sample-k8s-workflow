@@ -62,4 +62,4 @@ pipelines:
                   tag=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 2)
                   echo "Image is: $image"
                   echo "Tag is: $tag"
-                  helm install -n prod node-bulletin-board-prod node-bulletin-board --set image.repository=$image --set image.tag=$tag --set ingress.hosts[0].host node-bulletin-board-prod.local
+                  helm upgrade --install -n prod node-bulletin-board-prod node-bulletin-board --set image.repository=$image --set image.tag=$tag --set ingress.hosts[0].host node-bulletin-board-prod.local
