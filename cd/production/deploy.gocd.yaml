@@ -58,6 +58,9 @@ pipelines:
 
               - script: |
                   echo "Generating manifests! Although they are already generated :)"
-                  pwd
-                  ls -a ./
+                  image=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 1)
+                  tag=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 2)
+                  echo "Image is: $image"
+                  echo "Tag is: $tag"
+                  helm install -n prod node-bulletin-board node-bulletin-board --set image.repository $image --set image.tag $tag
 
