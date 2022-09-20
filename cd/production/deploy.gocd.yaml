@@ -11,7 +11,7 @@ pipelines:
 
     group: NodeBulletinBoardApplication
     lock_behavior: unlockWhenFinished
-    display_order: 4
+    display_order: 5
     
     materials:
       
