@@ -61,6 +61,6 @@ pipelines:
                   image=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 1)
                   tag=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 2)
                   echo "Image is: $image"
-                  echo "Tag is: $tag"
+                  echo "Tag is: $tag" 
                   helm upgrade --install --create-namespace -n qa node-bulletin-board-qa node-bulletin-board --set image.repository=$image --set image.tag=$tag --set ingress.hosts[0].host node-bulletin-board-qa.local
 
