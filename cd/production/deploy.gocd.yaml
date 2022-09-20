@@ -34,7 +34,7 @@ pipelines:
           clean_workspace: false
 
           approval:
-            type: success
+            type: manual
 
           jobs:
 
