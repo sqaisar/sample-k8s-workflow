@@ -61,6 +61,11 @@ pipelines:
                     
               - script: |
                   echo "Generating manifests! Although they are already generated :)"
-                  echo $ARTIFACT_IMAGE
+                  image=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 1)
+                  tag=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 2)
+                  echo "Image is: $image"
+                  echo "Tag is: $tag"
+
+                  
                   
 
