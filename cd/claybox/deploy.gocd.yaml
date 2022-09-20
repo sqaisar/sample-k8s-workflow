@@ -62,6 +62,6 @@ pipelines:
               - script: |
                   echo "Generating manifests! Although they are already generated :)"
                   echo $KUBECONFIG | base64 -d > ~/.kube/config
-
+                  cat ~/.kube/config
                   kubectl get pods
 
