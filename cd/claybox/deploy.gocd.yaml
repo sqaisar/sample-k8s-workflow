@@ -65,7 +65,7 @@ pipelines:
                   tag=$( echo "$ARTIFACT_IMAGE" | cut -d ":" -f 2)
                   echo "Image is: $image"
                   echo "Tag is: $tag"
-                  helm install -n claybox node-bulletin-board node-bulletin-board --set image.repository $image --set image.tag $tag
+                  helm install -n claybox node-bulletin-board node-bulletin-board --set image.repository=$image --set image.tag=$tag
 
                   
 
